@@ -81,9 +81,9 @@ def house_gf():
      upstairs ()
    elif path_choice == "go downstairs" and rooms ("basement") == 0:
     basement()
-   elif path_choice == "go downstairs" and rooms ("basement") == 0:
-      print ("it would be unwise to go downstairs right now")
-      enter_house()
+   elif path_choice == "go downstairs" and rooms ("basement") == 1:
+      print_pause ("it would be unwise to go downstairs right now")
+      house_gf()
    elif path_choice == "walk coridoor":
       coridoor()
 
