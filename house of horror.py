@@ -11,10 +11,26 @@ rooms = [
 def print_pause(message):
     print(message)
     time.sleep(2)
+def play_again():
+    while True:
+        again = input("Would you like to play again? (yes/no): ").lower()
+        if again != 'yes':
+            startgame()
+            break
+        else:
+            print ("thank you for playing. goodbye")
+            break
+
 
 def bad_room():
-   print_pause ("")
-
+   print_pause ("you open the door and quickly shut it behind you.")
+   print_pause ("looking around swiftly you see nothing that can help you.")
+   print_pause ("within moments the bear breaks down the door.")
+   print_pause ("you struggle as the bear lands upon you but it is open in a short time.")
+   print_pause ("unfortunately you are food for this ravenous bear.")
+   play_again()
+def box_room():
+   print_pause("")
 def window_room():
    print_pause("")
 
@@ -38,6 +54,7 @@ def stairs():
      print_pause("you quickly charge up the stairs and see two doors")
      print_pause("do you pick left or right?")
      upstairs_choice()
+     
 def gf_choice():
    path_choice = input ("please choose left or right")
    if path_choice == "left":
@@ -62,15 +79,6 @@ def coridoor():
 
 #full basement scene done by yakubu
 #slight adjustments to defines and calling those defines back work with main code done by rhys
-def play_again():
-    while True:
-        again = input("Would you like to play again? (yes/no): ").lower()
-        if again != 'yes':
-            startgame()
-            break
-        else:
-            print ("thank you for playing. goodbye")
-            break
 
 def bad_choice():
     print_pause("You hesitate and fail to choose an item in time.")
