@@ -14,10 +14,9 @@ def print_pause(message):
 def play_again():
     while True:
         again = input("Would you like to play again? (yes/no): ").lower()
-        if again != 'yes':
+        if again == 'yes':
             startgame()
-            break
-        else:
+        elif again == "no":
             print ("thank you for playing. goodbye")
             break
 
@@ -48,13 +47,13 @@ def stairs():
     print_pause("do you pick the left or right?")
     upstairs_choice()
 
-   elif rooms.count (basement) == 1:
+   elif rooms.count ("basement") == 1:
      print_pause ("as you walk up the stairs you hear a loud roar from the angry bear you hurt")
      print_pause("it charges up from the basement and starts to come up the stairs.")
      print_pause("you quickly charge up the stairs and see two doors")
      print_pause("do you pick left or right?")
      upstairs_choice()
-     
+
 def gf_choice():
    path_choice = input ("please choose left or right")
    if path_choice == "left":
@@ -70,7 +69,7 @@ def coridoor():
     print_pause ("before you are two doors. no time to react which door do you choose!")
     gf_choice()
 
-   elif rooms.count (basement) == 1:
+   elif rooms.count ("basement") == 1:
      print_pause("as you walk along the coridoor you hear a loud roar from the basement!")
      print_pause("the bear you hurt's heavy footstps can be heard barreling up the stairs!")
      print_pause("before you are two rooms. no time to pick which room do you pick?")
@@ -92,7 +91,7 @@ def crowbar():
     print_pause("You hit the bear square in the face, causing it to roar in pain.")
     print_pause("The bear retreats, giving you just enough time to sprint to the exit and escape!")
     rooms.append("basement")
-    enter_house()
+    house_gf()
  
 def rusty_toolbox():
     print_pause("You grab the rusty toolbox and open it.")
@@ -100,7 +99,8 @@ def rusty_toolbox():
     print_pause("You quickly fashion a makeshift weapon and prepare to defend yourself.")
     print_pause("The bear charges at you, but you manage to fend it off with your improvised weapon.")
     print_pause("With the bear momentarily stunned, you make a run for the exit and escape!")
-    enter_house()
+    rooms.append("basement")
+    house_gf()
 
 def choose_item():
     print_pause("You quickly scan the room and see two items:")
@@ -126,9 +126,9 @@ def house_gf():
    print_pause ("before you lies a long coridoor with various doors, a set of stairs along the wall heading to the top floor,")
    print_pause ("and a set of stairs leading to the bowels of the house, the bottom near invisible as the darkness encases it.")
    print_pause ("do you wish to go upstairs, go downstairs or walk the coridoor?")
-   path_choice = input ("please enter go upstairs, go downstairs or walk coridoor")
+   path_choice = input ("please enter go upstairs, go downstairs or walk coridoor: ")
    if path_choice == "go upstairs":
-     stairs ()
+     stairs()
    elif path_choice == "go downstairs" and rooms.count ("basement") == 0:
     basement()
    elif path_choice == "go downstairs" and rooms.count ("basement") == 1:
