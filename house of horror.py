@@ -11,6 +11,170 @@ rooms = [
 def print_pause(message):
     print(message)
     time.sleep(2)
+# this long pause and the box room done by paul
+def long_pause(message):
+    print(message)
+    time.sleep(4)
+
+def ghost(dialogue):
+    print(" .-.")
+    print("(o o) " + dialogue)
+    print("| O \ ")
+    print(" \   \ ")
+    print("  `~~~'")
+
+def ghost2(dialogue):
+    print("     .-.")
+    print("    (o o) " + dialogue)
+    print("----\ O \ ")
+    print("     \   \ ")
+    print("      `~~~'")
+
+def hide():
+    print("You hide in the trunk, trembling with fear, desperately holding the lid shut")
+    print_pause("Holding on tight...")
+    print_pause(".")
+    print_pause(".")
+    print_pause(".")
+    print_pause(".")
+    print_pause(".")
+    print_pause(".")
+    print_pause("You don't know how long you've been hiding, but it feels like hours")
+    print_pause(".")
+    print_pause(".")
+    print_pause(".")
+    print("You can't hear anything outside the trunk... maybe the coast is clear")
+    print_pause(".")
+    print_pause(".")
+    trunk_exit = input("Do you want to get out of the trunk? (YES/NO): ")
+    if trunk_exit.lower() == "yes":
+        print("You calm yourself down and think things through")
+        print_pause("There's no such thing as ghosts! ")
+        print_pause("")
+        print("You open the lid of the trunk and cautiously step outside")
+        print_pause("")
+        print("There doesn't seem to be anyone there...")
+        print_pause("")
+        print("You laugh at yourself for being such a coward - what were you doing hiding in a box?!")
+        print_pause("")
+        print("You walk towards the door, but as you reach for the handle, you feel a presence behind you")
+        long_pause("")
+        print("You turn around... and see the ghost's face inches from yours")
+        ghost_death()
+    elif trunk_exit.lower() == "no":
+        print("You're safe and warm in here. You keep the lid shut tight")
+        long_pause("")
+        hide_ending()
+    else:
+        print("You're too scared to think. Keep the lid shut!")
+        long_pause("")
+        hide_ending()
+
+def ghost_death():
+    print("The ghost reaches out its thin, boney, spectral hand towards you")
+    print_pause("")
+    ghost2("Stay with me!")
+    print_pause("")
+    print("You're numb with fear, and the room around you goes cold as the ghost's hand touches your heart")
+    long_pause("")
+    print("You feel your energy drain away as the ghost consumes your life force")
+    print_pause("")
+    print("You have died")
+    print("")
+    print("THE END")
+    ####END OF GAME####
+
+def hide_ending():
+    print("You wake up. You have no idea how much time has passed")
+    long_pause("")
+    print("You notice that you soiled yourself during the night, and the smell is stifling")
+    long_pause("")
+    print("You burst out of the trunk, gasping for air")
+    print_pause("")
+    print("The ghost has gone, but you see three shocked faces staring back at you")
+    long_pause("")
+    print("An estate agent is giving a house viewing to a well-dressed couple")
+    long_pause("")
+    print("You try to explain about the ghost, but they just stare at you in pity and disgust")
+    long_pause("")
+    print("They give you a warm blanket and a cup of tea, and eventually the police arrive to take you away")
+    long_pause("")
+    print("You survived the night, but you vaguely wish you hadn't")
+    print("")
+    print("THE END")
+    ####END OF GAME####
+
+def ghost_encounter():
+    ghost("You left me here to die!")
+    print_pause("")
+    ghost_run = input("Do you run away from the ghost? (YES/NO): ")
+    print_pause("")
+
+    if ghost_run.lower() == "yes":
+        print("You turn and run for the door, but it slams shut as you run towards it")
+        print_pause("")
+        print("You look around the room frantically and notice a large trunk by the side of the bed")
+        print_pause("")
+        trunk = input("Do you get into the trunk and hide from the ghost? (Yes/No?): ")
+        if trunk.lower() == "yes":
+            hide()
+        elif trunk.lower() == "no":
+            print("You give up trying to escape, and you turn to face the ghost")
+            long_pause("")
+            ghost_death()
+        else:
+            print("This is no time for indecision. You stand frozen in fear as the ghost moves towards you")
+            long_pause("")
+            ghost_death()
+    elif ghost_run.lower() == "no":
+        print("You stand your ground and face the ghost")
+        long_pause("")
+        ghost_death()
+    else:
+        print("You're paralysed by fear and indecision")
+        long_pause("")
+        ghost_death()
+
+def wardrobe_choice(): 
+      wardrobe = input("Do you walk over to the wardrobe? (Yes/No): ")
+      print_pause("")
+
+      if wardrobe.lower() == "no":
+        print("You walk back out of the room and quietly close the door behind you. Something's not right in here")
+        print_pause("as you walk out of the room you forgot about the hungry bear.")
+        print_pause("unfortunately the bear did not forgot about you.")
+        print_pause ("within moments it is over as the bear mauls and eats you.")
+
+      elif wardrobe.lower() == "yes":
+        print("You open the wardrobe and peer inside")
+        print_pause("")
+        print("At first it seems empty, but as your eyes adjust to the light, a cold, blank pair of eyes meets yours")
+        print_pause(":o")
+        print("A horrifying spectral figure emerges from the wardrobe and moves towards you")
+        print_pause("")
+        ghost("RAAAAAARghgh!")
+        long_pause("")
+        print("A ghost screams at you in a familiar voice")
+        ghost_encounter()
+
+
+      else: 
+          print("Make your mind up "), print_pause(""), wardrobe_choice()
+        
+def box_room():
+    print("You find yourself in an old bedroom, lit by a flickering candle on the bedside table")
+    print_pause("")
+    print("The room is meticulously neat and tidy, but there's a layer of dust over every surface")
+    long_pause("")
+    print("You get the distinct sense that nothing in this room has been touched in years, and yet you feel like there's someone in here with you...")
+    long_pause("")
+    print("As you look around the room, you notice a wardrobe door slightly ajar...")
+    print_pause("")
+    print("that door was definitely closed when you walked in... wasn't it??")
+    print_pause("")
+
+    wardrobe_choice()
+
 def play_again():
     while True:
         again = input("Would you like to play again? (yes/no): ").lower()
@@ -28,10 +192,19 @@ def bad_room():
    print_pause ("you struggle as the bear lands upon you but it is open in a short time.")
    print_pause ("unfortunately you are food for this ravenous bear.")
    play_again()
+
 def box_room():
    print_pause("")
+
+
+# Carlos
 def window_room():
-   print_pause("")
+   print_pause("You enter a room with a large, boarded-up window.")
+   print_pause("You see a small gap in the boards, and a faint light shines through.")
+   print_pause("With some effort, you pry the boards loose.")
+   print_pause("You jump out the window! escaping the house but breaking your legs because you fell at a weird angle...")
+   print_pause("You find yourself in a overgrown garden hurt and afraid, but free from the house.")
+   play_again()
 
 def upstairs_choice():
     path_choice = input ("please type left or right: ")
