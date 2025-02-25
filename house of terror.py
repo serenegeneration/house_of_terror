@@ -12,6 +12,12 @@ def print_pause(message):
     print(message)
     time.sleep(2)
 
+
+
+def coridoor():
+   print_pause ("")
+   print_pause ("")
+   print_pause ("")
 #full basement scene done by yakubu
 #slight adjustments to work with main code done by rhys
 def play_again():
@@ -24,27 +30,27 @@ def play_again():
             print ("thank you for playing. goodbye")
             break
 
-
 def bad_choice():
     print_pause("You hesitate and fail to choose an item in time.")
     print_pause("The bear lunges at you, and you are unable to defend yourself.")
     print_pause("Game over. You have been mauled by the bear.")
     play_again()
- 
 
 def crowbar():
     print_pause("You grab the crowbar and feel its weight in your hands.")
     print_pause("The bear charges at you, and you swing the crowbar with all your might.")
     print_pause("You hit the bear square in the face, causing it to roar in pain.")
     print_pause("The bear retreats, giving you just enough time to sprint to the exit and escape!")
+    rooms.append("basement")
+    enter_house()
  
-
 def rusty_toolbox():
     print_pause("You grab the rusty toolbox and open it.")
     print_pause("Inside, you find a set of old, but sturdy tools.")
     print_pause("You quickly fashion a makeshift weapon and prepare to defend yourself.")
     print_pause("The bear charges at you, but you manage to fend it off with your improvised weapon.")
     print_pause("With the bear momentarily stunned, you make a run for the exit and escape!")
+    enter_house()
 
 def choose_item():
     print_pause("You quickly scan the room and see two items:")
@@ -66,6 +72,20 @@ def basement():
     choose_item()
 
 #main coding done by rhys, i:e into, choice for if you stay by car, entering house, coridoors
+def house_gf():
+   print_pause ("before you lies a long coridoor with various doors, a set of stairs along the wall heading to the top floor,")
+   print_pause ("and a set of stairs leading to the bowels of the house, the bottom near invisible as the darkness encases it.")
+   print_pause ("do you wish to go upstairs, go downstairs or walk the coridoor?")
+   path_choice = input ("please enter go upstairs, go downstairs or walk coridoor")
+   if path_choice == "go upstairs":
+     upstairs ()
+   elif path_choice == "go downstairs" and rooms ("basement") == 0:
+    basement()
+   elif path_choice == "go downstairs" and rooms ("basement") == 0:
+      print ("it would be unwise to go downstairs right now")
+      enter_house()
+   elif path_choice == "walk coridoor":
+      coridoor()
 
 def enter_house ():
    print_pause ("you decide nobody is going to travel along the road, especially not at this time")
@@ -74,14 +94,7 @@ def enter_house ():
    print_pause ("you knock on the door, the sound echoing through the empty house like thunder.")
    print_pause ("the door swings open though there was nobody there")
    print_pause ("reluctantly you enter the decrepid house.")
-   print_pause ("before you lies a long coridoor with various doors, a set of stairs along the wall heading to the top floor,")
-   print_pause ("and a set of stairs leading to the bowels of the house, the bottom near invisible as the darkness encases it.")
-   print_pause ("do you wish to go upstairs, go downstairs or walk the coridoor?")
-   path_choice = input ("please enter go upstairs, go downstairs or walk coridoor")
-   if path_choice == "go upstairs":
-    upstairs ()
-   elif path_choice == "go downstairs":
-    basement()
+   house_gf()
 
 def choice_1 ():
      path_choice = input ("please enter, enter the house or stay by car: ")
@@ -92,19 +105,12 @@ def choice_1 ():
       print_pause ("you walk but there is nobody around.")
       print_pause ("you hear a loud crash and in seconds it is over")
       print_pause ("mauled by a bear you are not found, food for the wildlife.")
-      print_pause ("please try again. type y to try again and n to not")
-      path_choice = input ("y or n: ")
-      if path_choice == "y" or "Y":
-        startgame()
-      elif path_choice == "n" or " N":
-        print ("thank you for playing")
+      play_again()
      elif path_choice == "enter the house":
       enter_house()
      else:
       print ("please enter, enter the house or stay by car: ")
-      choice_1()
-    
-   
+      choice_1()   
 
 def startgame():
     print_pause ("you are travelling down a road in the dead of night.")
