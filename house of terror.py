@@ -7,32 +7,83 @@ items = [
 rooms = [
 
 ]
+#this neat little feature added by yakubu
+def print_pause(message):
+    print(message)
+    time.sleep(2)
+
+#full basement scene done by yakubu
+#slight adjustments to work with main code done by rhys
+def play_again():
+    while True:
+        again = input("Would you like to play again? (yes/no): ").lower()
+        if again != 'yes':
+            startgame()
+            break
+        else:
+            print ("thank you for playing. goodbye")
+            break
+
+
+def bad_choice():
+    print_pause("You hesitate and fail to choose an item in time.")
+    print_pause("The bear lunges at you, and you are unable to defend yourself.")
+    print_pause("Game over. You have been mauled by the bear.")
+    play_again()
+ 
+
+def crowbar():
+    print_pause("You grab the crowbar and feel its weight in your hands.")
+    print_pause("The bear charges at you, and you swing the crowbar with all your might.")
+    print_pause("You hit the bear square in the face, causing it to roar in pain.")
+    print_pause("The bear retreats, giving you just enough time to sprint to the exit and escape!")
+ 
+
+def rusty_toolbox():
+    print_pause("You grab the rusty toolbox and open it.")
+    print_pause("Inside, you find a set of old, but sturdy tools.")
+    print_pause("You quickly fashion a makeshift weapon and prepare to defend yourself.")
+    print_pause("The bear charges at you, but you manage to fend it off with your improvised weapon.")
+    print_pause("With the bear momentarily stunned, you make a run for the exit and escape!")
+
+def choose_item():
+    print_pause("You quickly scan the room and see two items:")
+    print_pause("1. A rusty toolbox")
+    print_pause("2. A crowbar")
+    choice_basement = input("Which item do you choose? (Enter 1 or 2): ")
+    if choice_basement == '1':
+        rusty_toolbox()
+    elif choice_basement == '2':
+        crowbar()
+    else:
+        bad_choice()
+
+def basement():
+    print_pause("You find yourself in the dark, damp basement of an abandoned house.")
+    print_pause("The air is thick with the smell of mold and rust.")
+    print_pause("You hear a low growl behind you. Turning around, you see a massive bear!")
+    print_pause("The bear is blocking the only exit. You need to find a way to escape!")
+    choose_item()
+
+#main coding done by rhys, i:e into, choice for if you stay by car, entering house, coridoors
 
 def enter_house ():
-   time.sleep(2)
-   print ("you decide nobody is going to travel along the road, especially not at this time")
-   time.sleep(2)
-   print ("as you walk up to the house and step onto it's wooden porch")
-   time.sleep(2)
-   print ("the wood creaks and groans as though eager for it's next victim")
-   time.sleep(2)
-   print ("you knock on the door, the sound echoing through the empty house like thunder.")
-   time.sleep(2)
-   print ("the door swings open though there was nobody there")
-   time.sleep(2)
-   print ("reluctantly you enter the decrepid house.")
-   time.sleep(2)
-   print ("before you lies a long coridoor with various doors, a set of stairs along the wall heading to the top floor,")
-   time.sleep(2)
-   print ("and a set of stairs leading to the bowels of the house, the bottom near invisible as the darkness encases it.")
-   time.sleep(2)
-   print ("do you wish to go upstairs, go downstairs or walk the coridoor?")
+   print_pause ("you decide nobody is going to travel along the road, especially not at this time")
+   print_pause ("as you walk up to the house and step onto it's wooden porch")
+   print_pause ("the wood creaks and groans as though eager for it's next victim")
+   print_pause ("you knock on the door, the sound echoing through the empty house like thunder.")
+   print_pause ("the door swings open though there was nobody there")
+   print_pause ("reluctantly you enter the decrepid house.")
+   print_pause ("before you lies a long coridoor with various doors, a set of stairs along the wall heading to the top floor,")
+   print_pause ("and a set of stairs leading to the bowels of the house, the bottom near invisible as the darkness encases it.")
+   print_pause ("do you wish to go upstairs, go downstairs or walk the coridoor?")
    path_choice = input ("please enter go upstairs, go downstairs or walk coridoor")
    if path_choice == "go upstairs":
-      upstairs ():
+    upstairs ()
    elif path_choice == "go downstairs":
+    basement()
 
-    def choice_1 ():
+def choice_1 ():
      path_choice = input ("please enter, enter the house or stay by car: ")
      if path_choice == "stay by car":
       time.sleep(2)
@@ -57,9 +108,11 @@ def enter_house ():
      elif path_choice == "enter the house":
       enter_house()
      else:
-      print ("please enter enter the house or stay by car: ")
+      print ("please enter, enter the house or stay by car: ")
       choice_1()
     
+   
+
 def startgame():
     time.sleep(2)
     print ("you are travelling down a road in the dead of night.")
@@ -75,61 +128,6 @@ def startgame():
     print ("do you wish to enter the house in hopes of finding help for your predicament?")
     time.sleep(2)
     print ("or do you wish to stay by the car in hopes somebody travels down this rundown road?")
-
-
-def print_pause(message):
-    print(message)
-    time.sleep(2)
+    choice_1()
  
-def intro():
-    print_pause("You find yourself in the dark, damp basement of an abandoned house.")
-    print_pause("The air is thick with the smell of mold and rust.")
-    print_pause("You hear a low growl behind you. Turning around, you see a massive bear!")
-    print_pause("The bear is blocking the only exit. You need to find a way to escape!")
- 
-def choose_item():
-    print_pause("You quickly scan the room and see two items:")
-    print_pause("1. A rusty toolbox")
-    print_pause("2. A crowbar")
-    choice = input("Which item do you choose? (Enter 1 or 2): ")
-    return choice
- 
-def rusty_toolbox():
-    print_pause("You grab the rusty toolbox and open it.")
-    print_pause("Inside, you find a set of old, but sturdy tools.")
-    print_pause("You quickly fashion a makeshift weapon and prepare to defend yourself.")
-    print_pause("The bear charges at you, but you manage to fend it off with your improvised weapon.")
-    print_pause("With the bear momentarily stunned, you make a run for the exit and escape!")
- 
-def crowbar():
-    print_pause("You grab the crowbar and feel its weight in your hands.")
-    print_pause("The bear charges at you, and you swing the crowbar with all your might.")
-    print_pause("You hit the bear square in the face, causing it to roar in pain.")
-    print_pause("The bear retreats, giving you just enough time to sprint to the exit and escape!")
- 
-def bad_choice():
-    print_pause("You hesitate and fail to choose an item in time.")
-    print_pause("The bear lunges at you, and you are unable to defend yourself.")
-    print_pause("Game over. You have been mauled by the bear.")
- 
-def play_game():
-    intro()
-    choice = choose_item()
-    if choice == '1':
-        rusty_toolbox()
-    elif choice == '2':
-        crowbar()
-    else:
-        bad_choice()
- 
-def play_again():
-    while True:
-        play_game()
-        again = input("Would you like to play again? (yes/no): ").lower()
-        if again != 'yes':
-            print_pause("Thanks for playing! Goodbye!")
-            break
- 
-play_again()
-
 startgame()
